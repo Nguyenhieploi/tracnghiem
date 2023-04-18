@@ -42,3 +42,9 @@ ul li input{
 .edit{
     display: none;
 }
+.dapandung{
+    color: green;
+}
+.dapansai{
+    color: red;
+}

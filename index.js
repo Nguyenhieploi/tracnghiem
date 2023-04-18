@@ -100,7 +100,7 @@ var nutNopBai = false; // chưa nộp bài thì false , đã nộp thì true
                 <span><label for="option1">D: ${value.dapand}</label></span>
                 </div>
             </div>
-           ${nutNopBai==true?'<span>Đáp án đúng: ${value.dapandung}</span><br>':''}
+           ${nutNopBai==true?`<span class="${value.dapandung==value.dapandachon?"dapandung":"dapansai"}"  >Đáp án đúng: ${value.dapandung}</span><br>`:''}
             <button class="btn-sua"  onclick="edit('${value.sothutu}')">Sửa</button>
             <button class="btn-xoa" onclick="remove('${value.sothutu}')">Xóa</button>
             <hr>
@@ -253,6 +253,8 @@ function nopbai(){
         
     })
     
+    nutNopBai = true;
+    show()
 
    
 }
