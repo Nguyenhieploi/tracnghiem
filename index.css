@@ -1,0 +1,44 @@
+h1{
+    text-align: center;
+    
+}
+.add{
+    margin-top: 50px;
+}
+.show{
+    margin-top: 50px;
+}
+ul li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+ul li input{
+    width: 100%;
+    outline: none;
+    height: 30px;
+    font-size: 15px;
+}
+.btn-add{
+    background-color: blueviolet;
+    color: #ffffff;
+    border: none;
+    padding:15px 100px;
+    margin-top: 20;
+}
+.btn-sua{
+    background-color: blueviolet;
+    color: #ffffff;
+    border: none;
+    padding:5px 30px;
+    margin-top: 30px;
+}
+.btn-xoa{
+    background-color: red;
+    color: #ffffff;
+    border: none;
+    padding:5px 30px;
+    margin-top: 30px;
+}
+.edit{
+    display: none;
+}

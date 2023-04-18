@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./index.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="add" id="reset-form">
+            <h1>Thêm trắc nghiệm</h1>
+            <ul>
+                <li>
+                    <label for="">Số tứ tự</label>
+                    <input type="number" id="sothutu" value="1" disabled >
+                </li>
+                <li>
+                    <label for="">Nhập câu hỏi</label>
+                    <input type="text" id="addcauhoi" >
+                </li>
+                <li>
+                    <label for="">Nhập đáp án A</label>
+                    <input type="text" id="dapana">
+                </li>
+                <li>
+                    <label for="">Nhập đáp án B</label>
+                    <input type="text"  id="dapanb">
+                </li>
+                <li>
+                    <label for="">Nhập đáp án C</label>
+                    <input type="text" id="dapanc">
+                </li>
+                <li>
+                    <label for="">Nhập đáp án D</label>
+                    <input type="text" id="dapand">
+                </li>
+                <li>
+                    <label for="">Nhập đáp án ĐÚNG</label>
+                    <select name="cars" id="dapandung">
+                        <option value="">Chọn đáp án</option>
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="d">D</option>
+                      </select>
+                </li>
+                <li>
+                    <button onclick="add()" class="btn-add">Thêm</button>
+                </li>
+            </ul>
+        </div>
+        <div class="edit" id="edit-block">
+            <h1>Sửa trắc nghiệm</h1>
+            <ul>
+                <li>
+                    <label for="">Số tứ tự</label>
+                    <input type="text" id="suasothutu">
+                </li>
+                <li>
+                    <label for="">Nhập câu hỏi</label>
+                    <input type="text" id="suaaddcauhoi">
+                </li>
+                <li>
+                    <label for="">Nhập đáp án A</label>
+                    <input type="text" id="suadapana">
+                </li>
+                <li>
+                    <label for="">Nhập đáp án B</label>
+                    <input type="text"  id="suadapanb">
+                </li>
+                <li>
+                    <label for="">Nhập đáp án C</label>
+                    <input type="text" id="suadapanc">
+                </li>
+                <li>
+                    <label for="">Nhập đáp án D</label>
+                    <input type="text" id="suadapand">
+                </li>
+                <li>
+                    <label for="">Nhập đáp án Đúng</label>
+                    <select name="cars" id="suadapandung">
+                        <option value="">Chọn đáp án</option>
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="d">D</option>
+                      </select>
+                </li>
+                <li>
+                    <button onclick="luu()" class="btn-add">Lưu lại</button>
+                </li>
+            </ul>
+        </div>
+        <div class="show">
+            <h1>Tất cả trắc nghiệm</h1>
+            <div id="tracnghiemdathem">
+                
+            </div>
+
+            <button type="button" class="btn-add" onclick="nopbai()" id="nopbai" style="background-color: green;margin: 0 auto;display: none;"class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+               NỘP BÀI
+              </button>
+        
+        </div>
+      
+        
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="bangdiem">
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
