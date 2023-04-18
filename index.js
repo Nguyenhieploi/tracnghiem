@@ -2,6 +2,10 @@
 var dsCauHoi =[
 
 ]
+
+var nutNopBai = false; // chưa nộp bài thì false , đã nộp thì true
+
+
  // tạo funciton để xử lí add
  function add(){
     var tracNghiem = {
@@ -80,22 +84,23 @@ var dsCauHoi =[
             <span>${value.cauhoi}</span>
             <div class="row">
                 <div class="col-lg-3">
-                <input type="radio" onclick="chondapan('${value.sothutu}')" id="option1" name="${value.sothutu}" value="a">
+                <input type="radio" onclick="chondapan('${value.sothutu}')" id="option1" name="${value.sothutu}" value="A">
                 <span><label for="option1">A: ${value.dapana}</label></span>
                 </div>
                  <div class="col-lg-3">
-                 <input type="radio" onclick="chondapan('${value.sothutu}')" id="option1" name="${value.sothutu}" value="b">
+                 <input type="radio" onclick="chondapan('${value.sothutu}')" id="option1" name="${value.sothutu}" value="B">
                  <span><label for="option1">B: ${value.dapanb}</label></span>
                 </div>
                 <div class="col-lg-3">
-                <input type="radio"  onclick="chondapan('${value.sothutu}')" id="option1" name="${value.sothutu}" value="c">
+                <input type="radio"  onclick="chondapan('${value.sothutu}')" id="option1" name="${value.sothutu}" value="C">
                 <span><label for="option1">C: ${value.dapanc}</label></span>
                 </div>
                 <div class="col-lg-3">
-                <input type="radio"  onclick="chondapan('${value.sothutu}')" id="option1" name="${value.sothutu}" value="d">
+                <input type="radio"  onclick="chondapan('${value.sothutu}')" id="option1" name="${value.sothutu}" value="D">
                 <span><label for="option1">D: ${value.dapand}</label></span>
                 </div>
             </div>
+           ${nutNopBai==true?`<span class="${value.dapandung==value.dapandachon?"dapandung":"dapansai"}"  >Đáp án đúng: ${value.dapandung}</span><br>`:''}
             <button class="btn-sua"  onclick="edit('${value.sothutu}')">Sửa</button>
             <button class="btn-xoa" onclick="remove('${value.sothutu}')">Xóa</button>
             <hr>
@@ -241,9 +246,15 @@ function nopbai(){
             tongDiem += 1;
             document.getElementById('bangdiem').innerHTML = `TỔNG ĐIỂM: ${tongDiem}`
         }
+        else{
+            tongDiem -= 0;
+            document.getElementById('bangdiem').innerHTML = `TỔNG ĐIỂM: ${tongDiem}`
+        }
         
     })
     
+    nutNopBai = true;
+    show()
 
    
 }
