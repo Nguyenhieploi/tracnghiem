@@ -6,6 +6,18 @@ var dsCauHoi =[
 var nutNopBai = false; // chưa nộp bài thì false , đã nộp thì true
 
 
+
+window.onload = function() {
+    // Code của bạn sẽ được thực thi sau khi trang web đã được tải hoàn tất
+    console.log("Trang web đã tải hoàn tất!");
+   var duLieuCache = localStorage.getItem('danhsachcauhoi')
+  dsCauHoi = JSON.parse(duLieuCache)
+  var loadIdValue = dsCauHoi[dsCauHoi.length - 1]
+  var soThuTuMax = parseInt(loadIdValue.sothutu)
+  document.getElementById('sothutu').value = soThuTuMax + 1
+    show()
+  };
+
  // tạo funciton để xử lí add
  function add(){
     var tracNghiem = {
@@ -107,6 +119,11 @@ var nutNopBai = false; // chưa nộp bài thì false , đã nộp thì true
             
     `
     })
+
+
+
+    // Lưu câu hỏi
+    localStorage.setItem('danhsachcauhoi',JSON.stringify(dsCauHoi))
 
 
  }
@@ -262,3 +279,48 @@ function nopbai(){
 // 1: Sau tổng điểm show giao diện
 //2: Khi nào nộp bài thì mới xuất hiện tổng điểm
 // 3: Tự động điền số thứ tự tăng dần 
+
+//nghiên cứu 3 khái niệm ;cookie, section, local storage trên trình duyệt96
+
+
+// var monToan = [1,2,3,4,5]
+// undefined
+// localStorage.setItem('monToan',monToan)
+// undefined
+// localStorage.setItem('monToan',JSON.stringify(monToan))
+// undefined
+// localStorage.getItem(monToan)
+// null
+// localStorage.getItem("monToan")
+// '[1,2,3,4,5]'
+
+
+
+// stringify là chuyển từ mảng  sang chuỗi
+// parse là chuyển từ chuỗi sang dạng mảng
+// ban đâu chuyển từ mảng sang chuỗi => muốn lấy nó ra thì chuyển từ chuôi sang mảng
+
+
+// localStorage.getItem('thongtinsinhvien',JSON.parse(sinhVien))
+// VM3512:1 Uncaught SyntaxError: "[object Object]" is not valid JSON
+//     at JSON.parse (<anonymous>)
+//     at <anonymous>:1:46
+// (anonymous) @ VM3511:1
+// localStorage.getItem('thongtinsinhvien'))
+// VM3604:1 Uncaught SyntaxError: Unexpected token ')'
+// localStorage.getItem('thongtinsinhvien')
+// '{"ten":"loi","tuoi":18,"sodienthoai":123}'
+// var chuyenMang = localStorage.getIem('thongtinsinhvien')
+// VM3774:1 Uncaught TypeError: localStorage.getIem is not a function
+//     at <anonymous>:1:31
+// (anonymous) @ VM3774:1
+// var chuyenMang = localStorage.getItem('thongtinsinhvien')
+// undefined
+// chuyen
+// VM3820:1 Uncaught ReferenceError: chuyen is not defined
+//     at <anonymous>:1:1
+// (anonymous) @ VM3820:1
+// chuyenMang
+// '{"ten":"loi","tuoi":18,"sodienthoai":123}'
+// JSON.parse(chuyenMang)
+// {ten: 'loi', tuoi: 18, sodienthoai: 123}sodienthoai: 123ten: "loi"tuoi: 18[[Prototype]]: Object
